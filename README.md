@@ -10,7 +10,7 @@ Step 3) Feed several memes to nn
 
 ---------------------------------------------------------------------
 
-#PROGRESS IN OCR
+# PROGRESS IN OCR
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -22,7 +22,7 @@ Tesseract needs to be trained on the standard training data provided by tesserac
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#Folders in repo:
+# Folders in repo:
 
 The "Standard training text" folder contains all relevant tiff files needed to box train tesseract one page at a time. 
 
@@ -55,7 +55,7 @@ Attempted image pre-processing has yielded some results.
 From tests, sharpening of a higher quality processed image causes OCR to detect diacritics where there are none (this will be addressed later in the readme).
 Lower quality images require higher thresholds and wavelet-denoise values. 
 
-#For Meme1:
+# For Meme1:
 After setting up TESSDATA_PREFIX, we take our source image test1.jpg and grayscale it, turn off alpha channels and resize it 400%. We set the units to PixelsPerInch and density to 300 to prevent tesseract from complaining about resolution.
 
 ```
@@ -66,10 +66,10 @@ $ tesseract test1meme.jpg output1.txt -l meme -c tessedit_char_whitelist=ABCDEFG
 ```
 ![Output1.txt](output1.txt) contains the result of the OCR on test1.jpg. 
 
-#For Meme2:
+# For Meme2:
 A similar process may be followed for test2.jpg which is a lower quality image and has a few different terminal commands to be OCR-readable.
 
-We raise the image threshold to 60% and teh wavelet-denoise threshold to 70% while simultaneously shapening the image.
+We raise the image threshold to 60% and the wavelet-denoise threshold to 70% while simultaneously shapening the image.
 
 ```
 $ convert test2.jpg -type Grayscale -alpha Off -resize 400% -units PixelsPerInch -density 300 test2gray.jpg
